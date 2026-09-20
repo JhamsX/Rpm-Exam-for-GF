@@ -1,0 +1,2710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>For My Love ♡</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        navy: "#071426",
+                        gold: "#E7B84B",
+                        rose: "#F3A6B8",
+                        cream: "#FFF9F3"
+
+                    },
+
+                    fontFamily: {
+
+                        sans: [
+                            "Inter",
+                            "ui-sans-serif",
+                            "system-ui"
+                        ],
+
+                        serif: [
+                            "Georgia",
+                            "serif"
+                        ]
+
+                    },
+
+                    animation: {
+
+                        float:
+                            "float 5s ease-in-out infinite",
+
+                        fadeUp:
+                            "fadeUp .7s ease forwards",
+
+                        pop:
+                            "pop .4s ease forwards",
+
+                        heartbeat:
+                            "heartbeat 1.5s ease-in-out infinite"
+
+                    },
+
+                    keyframes: {
+
+                        float: {
+
+                            "0%,100%": {
+                                transform: "translateY(0)"
+                            },
+
+                            "50%": {
+                                transform: "translateY(-10px)"
+                            }
+
+                        },
+
+                        fadeUp: {
+
+                            "0%": {
+
+                                opacity: "0",
+                                transform: "translateY(20px)"
+
+                            },
+
+                            "100%": {
+
+                                opacity: "1",
+                                transform: "translateY(0)"
+
+                            }
+
+                        },
+
+                        pop: {
+
+                            "0%": {
+
+                                opacity: "0",
+                                transform: "scale(.9)"
+
+                            },
+
+                            "100%": {
+
+                                opacity: "1",
+                                transform: "scale(1)"
+
+                            }
+
+                        },
+
+                        heartbeat: {
+
+                            "0%,100%": {
+                                transform: "scale(1)"
+                            },
+
+                            "50%": {
+                                transform: "scale(1.15)"
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            background:
+
+                radial-gradient(circle at 10% 0%,
+                    rgba(231, 184, 75, .12),
+                    transparent 30%),
+
+                radial-gradient(circle at 90% 10%,
+                    rgba(243, 166, 184, .14),
+                    transparent 30%),
+
+                #fffaf7;
+
+            color: #1e293b;
+
+            -webkit-font-smoothing: antialiased;
+
+        }
+
+        .glass {
+
+            background:
+                rgba(255, 255, 255, .78);
+
+            backdrop-filter:
+                blur(22px);
+
+            -webkit-backdrop-filter:
+                blur(22px);
+
+            border:
+                1px solid rgba(255, 255, 255, .9);
+
+            box-shadow:
+                0 20px 60px rgba(15, 23, 42, .08);
+
+        }
+
+        .dark-glass {
+
+            background:
+                rgba(7, 20, 38, .82);
+
+            backdrop-filter:
+                blur(22px);
+
+            -webkit-backdrop-filter:
+                blur(22px);
+
+        }
+
+        .choice {
+
+            transition:
+                transform .2s ease,
+                border-color .2s ease,
+                background .2s ease,
+                box-shadow .2s ease;
+
+        }
+
+        .choice:hover {
+
+            transform:
+                translateY(-2px);
+
+        }
+
+        .choice.selected {
+
+            border-color:
+                #E7B84B;
+
+            background:
+                rgba(231, 184, 75, .10);
+
+            box-shadow:
+                0 10px 30px rgba(231, 184, 75, .12);
+
+        }
+
+        .choice-letter {
+
+            transition:
+                all .2s ease;
+
+        }
+
+        .choice.selected .choice-letter {
+
+            background:
+                #E7B84B;
+
+            color:
+                #071426;
+
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .gold-text {
+
+            background:
+                linear-gradient(90deg,
+                    #C69228,
+                    #F5D47A,
+                    #C69228);
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            color:
+                transparent;
+
+        }
+
+        .poster {
+
+            background:
+
+                radial-gradient(circle at 80% 15%,
+                    rgba(231, 184, 75, .18),
+                    transparent 25%),
+
+                linear-gradient(145deg,
+                    #071426,
+                    #0c1d34);
+
+        }
+
+        .photo-shadow {
+
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, .28);
+
+        }
+
+        @media(max-width:640px) {
+
+            .mobile-card {
+
+                border-radius:
+                    1.5rem;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div id="app" class="min-h-screen px-4 py-6 sm:py-10">
+
+
+        <!-- =====================================================
+     NAME SCREEN
+===================================================== -->
+
+        <section id="nameScreen" class="min-h-[90vh] flex items-center justify-center">
+
+            <div class="
+            w-full
+            max-w-md
+            text-center
+            animate-fade-up
+        ">
+
+                <!-- PHOTO -->
+
+                <div class="relative mx-auto w-32 h-32 mb-7">
+
+                    <div class="
+                    absolute
+                    inset-0
+                    rounded-full
+                    bg-gradient-to-tr
+                    from-amber-300
+                    to-pink-300
+                    blur-xl
+                    opacity-40
+                "></div>
+
+                    <img src="assets\IMG_5646.jpeg" alt="Love" class="
+                    relative
+                    w-full
+                    h-full
+                    object-cover
+                    object-center
+                    rounded-full
+                    border-4
+                    border-white
+                    shadow-xl scale-110
+                ">
+
+                </div>
+
+
+                <p class="
+                text-xs
+                tracking-[.25em]
+                uppercase
+                font-bold
+                text-amber-600
+            ">
+                    A little surprise for you
+                </p>
+
+
+                <h1 class="
+                mt-3
+                text-4xl
+                sm:text-5xl
+                font-black
+                tracking-tight
+                text-slate-900
+            ">
+
+                    The Little
+
+                    <span class="gold-text">
+                        Psychometrician
+                    </span>
+
+                    Challenge
+
+                </h1>
+
+
+                <p class="
+                mt-4
+                text-slate-500
+                leading-relaxed
+            ">
+
+                    Before we begin...
+
+                    <br>
+
+                    I need to know the name of the
+                    beautiful future psychometrician
+                    taking this challenge. ♡
+
+                </p>
+
+
+                <div class="mt-7">
+
+                    <input id="nameInput" type="text" placeholder="Enter your name" autocomplete="off" class="
+                    w-full
+                    px-5
+                    py-4
+                    rounded-2xl
+                    border
+                    border-slate-200
+                    bg-white
+                    text-center
+                    text-lg
+                    font-semibold
+                    outline-none
+                    focus:border-amber-400
+                    focus:ring-4
+                    focus:ring-amber-100
+                    transition
+                ">
+
+                </div>
+
+
+                <button onclick="enterExam()" class="
+                mt-4
+                w-full
+                py-4
+                rounded-2xl
+                bg-slate-900
+                text-white
+                font-bold
+                shadow-lg
+                hover:bg-amber-500
+                hover:text-slate-950
+                transition
+            ">
+
+                    Continue ♡
+
+                </button>
+
+
+                <p class="
+                mt-5
+                text-xs
+                text-slate-400
+            ">
+
+                    Don't worry. From this point on,
+                    you're my Love. ♡
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     INTRO
+===================================================== -->
+
+        <section id="introScreen" class="
+        min-h-[90vh]
+        flex
+        items-center
+        justify-center
+        hide
+    ">
+
+            <div class="
+            w-full
+            max-w-2xl
+            glass
+            rounded-[2rem]
+            p-6
+            sm:p-10
+            text-center
+            animate-fade-up
+        ">
+
+                <div class="
+                mx-auto
+                w-20
+                h-20
+                rounded-full
+                bg-amber-50
+                flex
+                items-center
+                justify-center
+                text-4xl
+                animate-float
+            ">
+
+                    🧠
+
+                </div>
+
+
+                <p class="
+                mt-6
+                text-xs
+                tracking-[.25em]
+                uppercase
+                font-bold
+                text-amber-600
+            ">
+
+                    Welcome, Love
+
+                </p>
+
+
+                <h2 class="
+                mt-2
+                text-3xl
+                sm:text-5xl
+                font-black
+                text-slate-900
+            ">
+
+                    Ready?
+
+                </h2>
+
+
+                <p id="welcomeMessage" class="
+                mt-4
+                text-slate-500
+                leading-relaxed
+                max-w-lg
+                mx-auto
+            "></p>
+
+
+                <div class="
+                mt-7
+                grid
+                grid-cols-3
+                gap-2
+                sm:gap-4
+            ">
+
+                    <div class="
+                    rounded-2xl
+                    bg-amber-50
+                    p-4
+                ">
+
+                        <div class="text-xl">
+                            📝
+                        </div>
+
+                        <p class="
+                        mt-1
+                        text-xs
+                        font-bold
+                        text-slate-500
+                    ">
+                            15 Questions
+                        </p>
+
+                    </div>
+
+
+                    <div class="
+                    rounded-2xl
+                    bg-pink-50
+                    p-4
+                ">
+
+                        <div class="text-xl">
+                            ♡
+                        </div>
+
+                        <p class="
+                        mt-1
+                        text-xs
+                        font-bold
+                        text-slate-500
+                    ">
+                            Made For You
+                        </p>
+
+                    </div>
+
+
+                    <div class="
+                    rounded-2xl
+                    bg-indigo-50
+                    p-4
+                ">
+
+                        <div class="text-xl">
+                            🏆
+                        </div>
+
+                        <p class="
+                        mt-1
+                        text-xs
+                        font-bold
+                        text-slate-500
+                    ">
+                            Top 10
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button onclick="startExam()" class="
+                mt-8
+                w-full
+                sm:w-auto
+                px-10
+                py-4
+                rounded-2xl
+                bg-slate-900
+                text-white
+                font-bold
+                hover:bg-amber-500
+                hover:text-slate-950
+                transition
+            ">
+
+                    Begin, Love ♡
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     EXAM
+===================================================== -->
+
+        <section id="examScreen" class="
+        max-w-3xl
+        mx-auto
+        hide
+    ">
+
+            <!-- HEADER -->
+
+            <div class="
+            flex
+            items-center
+            justify-between
+            mb-5
+        ">
+
+                <div>
+
+                    <p class="
+                    text-[10px]
+                    sm:text-xs
+                    uppercase
+                    tracking-[.2em]
+                    font-bold
+                    text-amber-600
+                ">
+
+                        The Little Psychometrician Challenge
+
+                    </p>
+
+
+                    <h2 id="questionCounter" class="
+                    mt-1
+                    text-xl
+                    font-black
+                    text-slate-900
+                ">
+
+                        Question 1 of 15
+
+                    </h2>
+
+                </div>
+
+
+                <div class="
+                text-2xl
+                animate-heartbeat
+            ">
+
+                    ♡
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROGRESS -->
+
+            <div class="
+            w-full
+            h-2
+            bg-amber-100
+            rounded-full
+            overflow-hidden
+            mb-6
+        ">
+
+                <div id="progressBar" class="
+                h-full
+                bg-gradient-to-r
+                from-amber-400
+                to-amber-500
+                rounded-full
+                transition-all
+                duration-500
+            " style="width:6.66%"></div>
+
+            </div>
+
+
+
+            <!-- QUESTION CARD -->
+
+            <div class="
+            glass
+            rounded-[1.7rem]
+            sm:rounded-[2rem]
+            p-5
+            sm:p-9
+        ">
+
+                <div class="flex items-center justify-between gap-3">
+
+                    <span id="subjectBadge" class="
+                    px-3
+                    py-1.5
+                    rounded-full
+                    bg-amber-50
+                    text-amber-700
+                    text-[10px]
+                    sm:text-xs
+                    font-bold
+                ">
+
+                        Psychological Assessment
+
+                    </span>
+
+
+                    <span class="
+                    text-xs
+                    text-slate-400
+                ">
+
+                        ♡ Love
+
+                    </span>
+
+                </div>
+
+
+                <h3 id="questionText" class="
+                mt-6
+                text-xl
+                sm:text-2xl
+                font-bold
+                leading-relaxed
+                text-slate-900
+            "></h3>
+
+
+
+                <!-- PERSONAL MESSAGE -->
+
+                <div class="
+                mt-5
+                rounded-2xl
+                bg-gradient-to-r
+                from-pink-50
+                to-amber-50
+                border
+                border-pink-100
+                p-4
+            ">
+
+                    <div class="flex gap-3">
+
+                        <div class="
+                        w-9
+                        h-9
+                        rounded-full
+                        bg-white
+                        flex
+                        items-center
+                        justify-center
+                        shrink-0
+                        shadow-sm
+                    ">
+
+                            ♡
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="
+                            text-[10px]
+                            uppercase
+                            tracking-widest
+                            font-bold
+                            text-pink-400
+                        ">
+
+                                A little reminder from me
+
+                            </p>
+
+
+                            <p id="encouragement" class="
+                            mt-1
+                            text-sm
+                            leading-relaxed
+                            text-slate-600
+                        "></p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHOICES -->
+
+                <div id="choicesContainer" class="
+                mt-6
+                space-y-3
+            "></div>
+
+
+
+                <!-- NAVIGATION -->
+
+                <div class="
+                mt-7
+                flex
+                items-center
+                justify-between
+                gap-3
+            ">
+
+                    <button id="backBtn" onclick="previousQuestion()" class="
+                    px-4
+                    sm:px-5
+                    py-3
+                    rounded-xl
+                    border
+                    border-slate-200
+                    text-slate-500
+                    font-semibold
+                    text-sm
+                ">
+
+                        ← Back
+
+                    </button>
+
+
+                    <button id="nextBtn" onclick="nextQuestion()" class="
+                    px-5
+                    sm:px-6
+                    py-3
+                    rounded-xl
+                    bg-slate-900
+                    text-white
+                    font-bold
+                    text-sm
+                    hover:bg-amber-500
+                    hover:text-slate-950
+                    transition
+                ">
+
+                        Next →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NAVIGATOR -->
+
+            <div class="
+            mt-4
+            glass
+            rounded-2xl
+            p-4
+        ">
+
+                <p class="
+                text-[10px]
+                uppercase
+                tracking-widest
+                font-bold
+                text-slate-400
+                mb-3
+            ">
+
+                    Questions
+
+                </p>
+
+
+                <div id="questionNavigator" class="
+                flex
+                flex-wrap
+                gap-2
+            "></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     RESULT
+===================================================== -->
+
+        <section id="resultScreen" class="
+        max-w-3xl
+        mx-auto
+        hide
+    ">
+
+            <div class="
+            glass
+            rounded-[2rem]
+            p-5
+            sm:p-10
+            text-center
+            overflow-hidden
+        ">
+
+                <div id="resultEmoji" class="
+                text-6xl
+                animate-float
+            ">
+
+                    🏆
+
+                </div>
+
+
+                <p class="
+                mt-5
+                text-xs
+                uppercase
+                tracking-[.25em]
+                font-bold
+                text-amber-600
+            ">
+
+                    Your Result
+
+                </p>
+
+
+                <h1 id="resultTitle" class="
+                mt-2
+                text-4xl
+                sm:text-5xl
+                font-black
+                text-slate-900
+            ">
+
+                    Congratulations!
+
+                </h1>
+
+
+                <p id="resultSubtitle" class="
+                mt-3
+                text-slate-500
+            "></p>
+
+
+
+                <!-- SCORE -->
+
+                <div class="
+                mt-7
+                flex
+                justify-center
+            ">
+
+                    <div class="
+                    w-32
+                    h-32
+                    sm:w-36
+                    sm:h-36
+                    rounded-full
+                    bg-amber-50
+                    border-8
+                    border-amber-100
+                    flex
+                    flex-col
+                    items-center
+                    justify-center
+                ">
+
+                        <span id="scoreNumber" class="
+                        text-4xl
+                        font-black
+                        text-amber-600
+                    ">
+
+                            15
+
+                        </span>
+
+
+                        <span class="
+                        text-[10px]
+                        font-bold
+                        text-slate-400
+                    ">
+
+                            OUT OF 15
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RANK -->
+
+                <p class="
+                mt-6
+                text-sm
+                text-slate-400
+            ">
+
+                    Your special ranking
+
+                </p>
+
+
+                <div id="rankText" class="
+                mt-1
+                text-4xl
+                sm:text-5xl
+                font-black
+                gold-text
+            ">
+
+                    TOP 1
+
+                </div>
+
+
+
+                <!-- MESSAGE -->
+
+                <div id="personalMessage" class="
+                mt-6
+                rounded-2xl
+                bg-pink-50
+                p-5
+                text-pink-700
+                leading-relaxed
+                font-medium
+            "></div>
+
+
+
+                <!-- SPECIAL POSTER -->
+
+                <div id="specialPoster" class="
+                mt-8
+                hide
+            ">
+
+                    <div class="
+                    text-left
+                    mb-3
+                ">
+
+                        <p class="
+                        text-xs
+                        uppercase
+                        tracking-widest
+                        font-bold
+                        text-amber-600
+                    ">
+
+                            You earned this ♡
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="
+                    poster
+                    rounded-3xl
+                    overflow-hidden
+                    border
+                    border-amber-300/20
+                    shadow-2xl
+                ">
+
+                        <img id="posterImage" src="assets/Top 1.png" alt="Special poster" class="
+                        w-full
+                        h-auto
+                        block
+                    ">
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- NORMAL TOP 4-10 RESULT CARD -->
+
+                <div id="cuteResultCard" class="
+                mt-8
+                rounded-3xl
+                bg-gradient-to-br
+                from-pink-50
+                via-white
+                to-amber-50
+                border
+                border-pink-100
+                p-7
+                hide
+            ">
+
+                    <div id="cuteResultEmoji" class="text-5xl">
+
+                        🌷
+
+                    </div>
+
+
+                    <h3 id="cuteResultTitle" class="
+                    mt-3
+                    text-2xl
+                    font-black
+                    text-slate-800
+                ">
+
+                        You Did It!
+
+                    </h3>
+
+
+                    <p id="cuteResultText" class="
+                    mt-2
+                    text-sm
+                    leading-relaxed
+                    text-slate-500
+                "></p>
+
+                </div>
+
+
+
+                <button onclick="restartExam()" class="
+                mt-8
+                w-full
+                sm:w-auto
+                px-8
+                py-4
+                rounded-2xl
+                bg-slate-900
+                text-white
+                font-bold
+                hover:bg-amber-500
+                hover:text-slate-950
+                transition
+            ">
+
+                    Take It Again ♡
+
+                </button>
+
+
+                <p class="
+                mt-6
+                text-xs
+                text-slate-400
+            ">
+
+                    No matter the score, I'm always cheering for you. ♡
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =====================================================
+           STATE
+        ===================================================== */
+
+        let herName = "";
+        let currentQuestion = 0;
+
+        let userAnswers =
+            Array(15).fill(null);
+
+
+
+        /* =====================================================
+           QUESTIONS
+        ===================================================== */
+
+        const questions = [
+
+            {
+
+                subject:
+                    "Developmental Psychology",
+
+                question:
+                    "According to Piaget, a child who understands that the amount of liquid remains the same despite being poured into a taller container is demonstrating:",
+
+                choices: [
+
+                    "Object permanence",
+
+                    "Conservation",
+
+                    "Egocentrism",
+
+                    "Animism"
+
+                ],
+
+                answer: 1,
+
+                cheer:
+                    "Take your time, Love. You don't have to rush. I know how hard you've worked for this. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Developmental Psychology",
+
+                question:
+                    "Which developmental task is most closely associated with Erikson's stage of Identity vs. Role Confusion?",
+
+                choices: [
+
+                    "Developing a sense of personal identity",
+
+                    "Learning basic trust in caregivers",
+
+                    "Developing intimacy with a partner",
+
+                    "Developing generativity"
+
+                ],
+
+                answer: 0,
+
+                cheer:
+                    "You know this, Love. Trust the things you've studied and trust yourself too. I'm right here cheering for you. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Developmental Psychology",
+
+                question:
+                    "A child begins to imitate behaviors after observing an adult perform them. This phenomenon is most strongly associated with:",
+
+                choices: [
+
+                    "Classical conditioning",
+
+                    "Social learning theory",
+
+                    "Psychodynamic theory",
+
+                    "Cognitive dissonance"
+
+                ],
+
+                answer: 1,
+
+                cheer:
+                    "One question at a time, Love. Breathe. You're doing better than you think. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Abnormal Psychology",
+
+                question:
+                    "A person experiences recurrent, unexpected panic attacks and becomes persistently concerned about having additional attacks. Which condition is most consistent with this presentation?",
+
+                choices: [
+
+                    "Specific phobia",
+
+                    "Panic disorder",
+
+                    "Social anxiety disorder",
+
+                    "Generalized anxiety disorder"
+
+                ],
+
+                answer: 1,
+
+                cheer:
+                    "Don't let one difficult question shake you. Keep going, Love. You've got this. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Abnormal Psychology",
+
+                question:
+                    "Which feature most clearly distinguishes an obsession from a compulsion?",
+
+                choices: [
+
+                    "An obsession is a repetitive behavior",
+
+                    "A compulsion is always pleasurable",
+
+                    "An obsession is an intrusive thought or urge",
+
+                    "A compulsion occurs only during sleep"
+
+                ],
+
+                answer: 2,
+
+                cheer:
+                    "I believe in you even when you're second-guessing yourself. Keep trusting your knowledge. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Abnormal Psychology",
+
+                question:
+                    "A client reports persistent low mood, loss of interest, fatigue, and difficulty concentrating. Which symptom cluster is most characteristic of a depressive disorder?",
+
+                choices: [
+
+                    "Manic symptoms",
+
+                    "Depressive symptoms",
+
+                    "Dissociative symptoms",
+
+                    "Psychotic symptoms"
+
+                ],
+
+                answer: 1,
+
+                cheer:
+                    "Halfway there soon, Love. Look how far you've already come. I'm proud of you. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Industrial-Organizational Psychology",
+
+                question:
+                    "A company uses a structured interview in which every applicant is asked the same predetermined questions and evaluated using the same criteria. This is an example of:",
+
+                choices: [
+
+                    "Unstructured interviewing",
+
+                    "Structured interviewing",
+
+                    "Clinical interviewing",
+
+                    "Exit interviewing"
+
+                ],
+
+                answer: 1,
+
+                cheer:
+                    "Future RPm energy. Keep that beautiful brain working. You're doing amazing. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Industrial-Organizational Psychology",
+
+                question:
+                    "Which concept refers to an employee's overall evaluation of their job, including satisfaction with tasks, supervision, and working conditions?",
+
+                choices: [
+
+                    "Job satisfaction",
+
+                    "Organizational citizenship",
+
+                    "Role ambiguity",
+
+                    "Job analysis"
+
+                ],
+
+                answer: 0,
+
+                cheer:
+                    "You're getting closer, Love. Don't think about the score yet. Just focus on this question. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Industrial-Organizational Psychology",
+
+                question:
+                    "A supervisor gives an employee a higher performance rating because the employee recently completed an impressive project. This illustrates:",
+
+                choices: [
+
+                    "Halo effect",
+
+                    "Recency effect",
+
+                    "Central tendency",
+
+                    "Similarity bias"
+
+                ],
+
+                answer: 1,
+
+                cheer:
+                    "Keep going. I know that tired little brain of yours is still fighting. I'm cheering for you. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Psychological Assessment",
+
+                question:
+                    "A psychological test produces consistent scores when administered repeatedly under similar conditions. This property primarily refers to:",
+
+                choices: [
+
+                    "Validity",
+
+                    "Reliability",
+
+                    "Norming",
+
+                    "Standardization"
+
+                ],
+
+                answer: 1,
+
+                cheer:
+                    "Assessment question! Your moment, Love. Show that psychometrician brain what it can do. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Psychological Assessment",
+
+                question:
+                    "A test is considered valid when it:",
+
+                choices: [
+
+                    "Produces exactly the same score every time",
+
+                    "Is easy to administer",
+
+                    "Measures what it is intended to measure",
+
+                    "Contains a large number of questions"
+
+                ],
+
+                answer: 2,
+
+                cheer:
+                    "You're doing this. Don't underestimate yourself. You've studied for moments like this. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Psychological Assessment",
+
+                question:
+                    "Which type of validity concerns whether a test adequately represents the content domain it is intended to measure?",
+
+                choices: [
+
+                    "Content validity",
+
+                    "Predictive validity",
+
+                    "Concurrent validity",
+
+                    "Discriminant validity"
+
+                ],
+
+                answer: 0,
+
+                cheer:
+                    "Almost there, Love. Imagine me beside you saying: 'You got this.' Because you really do. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Psychological Assessment",
+
+                question:
+                    "A percentile rank of 75 indicates that the examinee performed:",
+
+                choices: [
+
+                    "75% correctly",
+
+                    "One standard deviation above the mean",
+
+                    "As well as or better than approximately 75% of the norm group",
+
+                    "75 points above the average"
+
+                ],
+
+                answer: 2,
+
+                cheer:
+                    "Deep breath. Read carefully. You don't need luck when you've prepared this much. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Psychological Assessment",
+
+                question:
+                    "The primary purpose of establishing test norms is to:",
+
+                choices: [
+
+                    "Make every examinee receive the same score",
+
+                    "Provide a basis for interpreting an individual's score relative to a reference group",
+
+                    "Eliminate measurement error",
+
+                    "Guarantee that the test is valid"
+
+                ],
+
+                answer: 1,
+
+                cheer:
+                    "One more push, Love. I'm already proud of you for making it this far. ♡"
+
+            },
+
+
+            {
+
+                subject:
+                    "Psychological Assessment",
+
+                question:
+                    "A test administrator gives the same instructions, time limits, and scoring procedures to all examinees. This primarily demonstrates:",
+
+                choices: [
+
+                    "Standardization",
+
+                    "Projective assessment",
+
+                    "Clinical judgment",
+
+                    "Incremental validity"
+
+                ],
+
+                answer: 0,
+
+                cheer:
+                    "Last one, Love. Give it everything you've got. Then come back to me. ♡"
+
+            }
+
+        ];
+
+
+
+        /* =====================================================
+           NAME
+        ===================================================== */
+
+        function enterExam() {
+
+            const input =
+                document.getElementById("nameInput");
+
+            herName =
+                input.value.trim();
+
+            if (!herName) {
+
+                input.classList.add(
+                    "border-pink-400",
+                    "ring-4",
+                    "ring-pink-100"
+                );
+
+                input.placeholder =
+                    "Please enter your name, Love ♡";
+
+                return;
+
+            }
+
+            document
+                .getElementById("nameScreen")
+                .classList.add("hide");
+
+            document
+                .getElementById("introScreen")
+                .classList.remove("hide");
+
+
+            document
+                .getElementById("welcomeMessage")
+                .textContent =
+
+                `${herName}, from this point on, you're my Love. 
+        This little challenge isn't about pressure.
+        It's just a reminder of how much I believe in you. ♡`;
+
+        }
+
+
+
+        /* =====================================================
+           START
+        ===================================================== */
+
+        function startExam() {
+
+            currentQuestion = 0;
+
+            userAnswers =
+                Array(15).fill(null);
+
+
+            document
+                .getElementById("introScreen")
+                .classList.add("hide");
+
+
+            document
+                .getElementById("examScreen")
+                .classList.remove("hide");
+
+
+            renderQuestion();
+
+        }
+
+
+
+        /* =====================================================
+           RENDER
+        ===================================================== */
+
+        function renderQuestion() {
+
+            const q =
+                questions[currentQuestion];
+
+
+            document
+                .getElementById("questionCounter")
+                .textContent =
+
+                `Question ${currentQuestion + 1} of ${questions.length}`;
+
+
+            document
+                .getElementById("subjectBadge")
+                .textContent =
+                q.subject;
+
+
+            document
+                .getElementById("questionText")
+                .textContent =
+                q.question;
+
+
+            document
+                .getElementById("encouragement")
+                .textContent =
+                q.cheer;
+
+
+            const progress =
+                ((currentQuestion + 1) /
+                    questions.length) * 100;
+
+
+            document
+                .getElementById("progressBar")
+                .style.width =
+                `${progress}%`;
+
+
+            const container =
+                document
+                    .getElementById("choicesContainer");
+
+
+            container.innerHTML = "";
+
+
+            const letters =
+                ["A", "B", "C", "D"];
+
+
+            q.choices.forEach(
+                (choice, index) => {
+
+
+                    const button =
+                        document.createElement("button");
+
+
+                    button.className = `
+
+                choice
+
+                w-full
+
+                text-left
+
+                border
+
+                border-slate-200
+
+                rounded-2xl
+
+                p-4
+
+                flex
+
+                items-center
+
+                gap-4
+
+                bg-white/70
+
+            `;
+
+
+                    if (
+                        userAnswers[currentQuestion]
+                        === index
+                    ) {
+
+                        button.classList.add(
+                            "selected"
+                        );
+
+                    }
+
+
+                    button.innerHTML = `
+
+                <span
+                    class="
+                        choice-letter
+                        w-9
+                        h-9
+                        rounded-xl
+                        bg-slate-100
+                        flex
+                        items-center
+                        justify-center
+                        font-bold
+                        text-slate-500
+                        shrink-0
+                    "
+                >
+
+                    ${letters[index]}
+
+                </span>
+
+
+                <span
+                    class="
+                        text-sm
+                        sm:text-base
+                        font-medium
+                    "
+                >
+
+                    ${choice}
+
+                </span>
+
+            `;
+
+
+                    button.onclick =
+                        () => {
+
+                            userAnswers[
+                                currentQuestion
+                            ] = index;
+
+                            renderQuestion();
+
+                        };
+
+
+                    container.appendChild(
+                        button
+                    );
+
+                }
+            );
+
+
+            document
+                .getElementById("backBtn")
+                .disabled =
+                currentQuestion === 0;
+
+
+            document
+                .getElementById("backBtn")
+                .classList.toggle(
+                    "opacity-40",
+                    currentQuestion === 0
+                );
+
+
+            document
+                .getElementById("nextBtn")
+                .textContent =
+
+                currentQuestion ===
+                    questions.length - 1
+
+                    ? "Finish ♡"
+
+                    : "Next →";
+
+
+            renderNavigator();
+
+        }
+
+
+
+        /* =====================================================
+           NAVIGATOR
+        ===================================================== */
+
+        function renderNavigator() {
+
+            const nav =
+                document
+                    .getElementById(
+                        "questionNavigator"
+                    );
+
+
+            nav.innerHTML = "";
+
+
+            questions.forEach(
+                (_, index) => {
+
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    button.textContent =
+                        index + 1;
+
+
+                    button.className = `
+
+                w-9
+
+                h-9
+
+                rounded-xl
+
+                text-xs
+
+                font-bold
+
+                transition
+
+            `;
+
+
+                    if (
+                        index === currentQuestion
+                    ) {
+
+                        button.classList.add(
+                            "bg-slate-900",
+                            "text-white"
+                        );
+
+                    }
+
+                    else if (
+                        userAnswers[index] !== null
+                    ) {
+
+                        button.classList.add(
+                            "bg-amber-100",
+                            "text-amber-700"
+                        );
+
+                    }
+
+                    else {
+
+                        button.classList.add(
+                            "bg-slate-100",
+                            "text-slate-400"
+                        );
+
+                    }
+
+
+                    button.onclick = () => {
+
+                        currentQuestion =
+                            index;
+
+                        renderQuestion();
+
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "smooth"
+                        });
+
+                    };
+
+
+                    nav.appendChild(
+                        button
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =====================================================
+           NEXT
+        ===================================================== */
+
+        function nextQuestion() {
+
+            if (
+                userAnswers[currentQuestion]
+                === null
+            ) {
+
+                const container =
+                    document
+                        .getElementById(
+                            "choicesContainer"
+                        );
+
+
+                container.classList.add(
+                    "animate-pulse"
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        container.classList.remove(
+                            "animate-pulse"
+                        );
+
+                    },
+                    500
+                );
+
+
+                return;
+
+            }
+
+
+            if (
+                currentQuestion ===
+                questions.length - 1
+            ) {
+
+                finishExam();
+
+                return;
+
+            }
+
+
+            currentQuestion++;
+
+
+            renderQuestion();
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        /* =====================================================
+           BACK
+        ===================================================== */
+
+        function previousQuestion() {
+
+            if (currentQuestion > 0) {
+
+                currentQuestion--;
+
+                renderQuestion();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           FINISH
+        ===================================================== */
+
+        function finishExam() {
+
+            let score = 0;
+
+
+            questions.forEach(
+                (q, index) => {
+
+                    if (
+                        userAnswers[index]
+                        === q.answer
+                    ) {
+
+                        score++;
+
+                    }
+
+                }
+            );
+
+
+            showResult(score);
+
+        }
+
+
+
+        /* =====================================================
+           RANK
+        ===================================================== */
+
+        function getRank(score) {
+
+            if (score >= 14) return 1;
+
+            if (score === 13) return 2;
+
+            if (score === 12) return 3;
+
+            if (score === 11) return 4;
+
+            if (score === 10) return 5;
+
+            if (score === 9) return 6;
+
+            if (score === 8) return 7;
+
+            if (score === 7) return 8;
+
+            if (score === 6) return 9;
+
+            return 10;
+
+        }
+
+
+
+        /* =====================================================
+           RESULT
+        ===================================================== */
+
+        function showResult(score) {
+
+            const rank =
+                getRank(score);
+
+
+            document
+                .getElementById(
+                    "examScreen"
+                )
+                .classList.add("hide");
+
+
+            document
+                .getElementById(
+                    "resultScreen"
+                )
+                .classList.remove("hide");
+
+
+            document
+                .getElementById(
+                    "scoreNumber"
+                )
+                .textContent =
+                score;
+
+
+            document
+                .getElementById(
+                    "rankText"
+                )
+                .textContent =
+                `TOP ${rank}`;
+
+
+            const emoji =
+                document.getElementById(
+                    "resultEmoji"
+                );
+
+
+            const title =
+                document.getElementById(
+                    "resultTitle"
+                );
+
+
+            const subtitle =
+                document.getElementById(
+                    "resultSubtitle"
+                );
+
+
+            const message =
+                document.getElementById(
+                    "personalMessage"
+                );
+
+
+            const poster =
+                document.getElementById(
+                    "specialPoster"
+                );
+
+
+            const cuteCard =
+                document.getElementById(
+                    "cuteResultCard"
+                );
+
+
+            /* ---------------------------------
+               TOP 1
+            --------------------------------- */
+
+            if (rank === 1) {
+
+                emoji.textContent =
+                    "👑";
+
+
+                title.textContent =
+                    "Congratulations, Love!";
+
+
+                subtitle.textContent =
+                    "You absolutely did it.";
+
+
+                message.textContent =
+
+                    `${herName}, TOP 1.
+            ${score}/15.
+
+            I knew you could do it.
+            You worked hard, you kept going,
+            and you believed in yourself.
+
+            I'm so, so proud of you, Love. ♡`;
+
+
+                poster.classList.remove(
+                    "hide"
+                );
+
+
+                cuteCard.classList.add(
+                    "hide"
+                );
+
+
+                celebrate(
+                    180
+                );
+
+            }
+
+
+            /* ---------------------------------
+               TOP 2
+            --------------------------------- */
+
+            else if (rank === 2) {
+
+                emoji.textContent =
+                    "🥇";
+
+
+                title.textContent =
+                    "You Were Amazing, Love!";
+
+
+                subtitle.textContent =
+                    "TOP 2 — what a beautiful result.";
+
+
+                message.textContent =
+
+                    `${herName}, you got TOP 2
+            with ${score}/15.
+
+            You should be incredibly proud
+            of yourself. This little challenge
+            only reminded me of what I already
+            know — you're capable of amazing things. ♡`;
+
+
+                poster.classList.remove(
+                    "hide"
+                );
+
+
+                document
+                    .getElementById(
+                        "posterImage"
+                    )
+                    .src =
+                    "assets/top2-poster.png";
+
+
+                cuteCard.classList.add(
+                    "hide"
+                );
+
+
+                celebrate(
+                    140
+                );
+
+            }
+
+
+            /* ---------------------------------
+               TOP 3
+            --------------------------------- */
+
+            else if (rank === 3) {
+
+                emoji.textContent =
+                    "🥉";
+
+
+                title.textContent =
+                    "Look at You, Love!";
+
+
+                subtitle.textContent =
+                    "TOP 3 — you did beautifully.";
+
+
+                message.textContent =
+
+                    `${herName}, TOP 3!
+            ${score}/15.
+
+            You should smile right now
+            because you earned this.
+
+            Keep believing in yourself.
+            I'll always be one of the people
+            cheering the loudest for you. ♡`;
+
+
+                poster.classList.remove(
+                    "hide"
+                );
+
+
+                document
+                    .getElementById(
+                        "posterImage"
+                    )
+                    .src =
+                    "assets/top3-poster.png";
+
+
+                cuteCard.classList.add(
+                    "hide"
+                );
+
+
+                celebrate(
+                    110
+                );
+
+            }
+
+
+            /* ---------------------------------
+               TOP 4-10
+            --------------------------------- */
+
+            else {
+
+                poster.classList.add(
+                    "hide"
+                );
+
+
+                cuteCard.classList.remove(
+                    "hide"
+                );
+
+
+                const cuteEmoji =
+                    document.getElementById(
+                        "cuteResultEmoji"
+                    );
+
+
+                const cuteTitle =
+                    document.getElementById(
+                        "cuteResultTitle"
+                    );
+
+
+                const cuteText =
+                    document.getElementById(
+                        "cuteResultText"
+                    );
+
+
+                if (rank === 4) {
+
+                    cuteEmoji.textContent =
+                        "🌷";
+
+                    cuteTitle.textContent =
+                        "Top 4, Love!";
+
+                    cuteText.textContent =
+
+                        `That's still an amazing result,
+                ${herName}. Keep studying,
+                keep believing, and keep going.
+                I'm proud of you. ♡`;
+
+                }
+
+
+                else if (rank === 5) {
+
+                    cuteEmoji.textContent =
+                        "🌸";
+
+                    cuteTitle.textContent =
+                        "You Did It!";
+
+                    cuteText.textContent =
+
+                        `Top 5, Love!
+                You made it through all 15.
+                That's something to celebrate.
+                ♡`;
+
+                }
+
+
+                else if (rank === 6) {
+
+                    cuteEmoji.textContent =
+                        "🌷";
+
+                    cuteTitle.textContent =
+                        "Keep Going, Love";
+
+                    cuteText.textContent =
+
+                        `Top 6!
+                Every question you answered
+                is another step toward becoming
+                the psychometrician you want to be. ♡`;
+
+                }
+
+
+                else if (rank === 7) {
+
+                    cuteEmoji.textContent =
+                        "🦋";
+
+                    cuteTitle.textContent =
+                        "Still Proud of You";
+
+                    cuteText.textContent =
+
+                        `Top 7, Love.
+                One little score doesn't define
+                how capable you are.
+                Keep learning. Keep growing. ♡`;
+
+                }
+
+
+                else if (rank === 8) {
+
+                    cuteEmoji.textContent =
+                        "🌻";
+
+                    cuteTitle.textContent =
+                        "Don't Give Up";
+
+                    cuteText.textContent =
+
+                        `Top 8!
+                Take what you learned here,
+                review a little more,
+                and try again. I'll be cheering for you. ♡`;
+
+                }
+
+
+                else if (rank === 9) {
+
+                    cuteEmoji.textContent =
+                        "🤍";
+
+                    cuteTitle.textContent =
+                        "One Step at a Time";
+
+                    cuteText.textContent =
+
+                        `Top 9, Love.
+                This is practice, not your final story.
+                Your dream is still waiting for you. ♡`;
+
+                }
+
+
+                else {
+
+                    cuteEmoji.textContent =
+                        "🌷";
+
+                    cuteTitle.textContent =
+                        "You Finished!";
+
+                    cuteText.textContent =
+
+                        `${herName}, I'm still proud of you.
+                The goal isn't to be perfect today.
+                The goal is to keep moving forward.
+                And I'll be here cheering for you. ♡`;
+
+                }
+
+            }
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        /* =====================================================
+           CONFETTI
+        ===================================================== */
+
+        function celebrate(amount) {
+
+            confetti({
+
+                particleCount:
+                    amount,
+
+                spread:
+                    100,
+
+                startVelocity:
+                    35,
+
+                origin: {
+
+                    y:
+                        .65
+
+                }
+
+            });
+
+
+            setTimeout(
+                () => {
+
+                    confetti({
+
+                        particleCount:
+                            70,
+
+                        spread:
+                            70,
+
+                        origin: {
+
+                            x:
+                                .15,
+
+                            y:
+                                .7
+
+                        }
+
+                    });
+
+                },
+                400
+            );
+
+
+            setTimeout(
+                () => {
+
+                    confetti({
+
+                        particleCount:
+                            70,
+
+                        spread:
+                            70,
+
+                        origin: {
+
+                            x:
+                                .85,
+
+                            y:
+                                .7
+
+                        }
+
+                    });
+
+                },
+                650
+            );
+
+        }
+
+
+
+        /* =====================================================
+           RESTART
+        ===================================================== */
+
+        function restartExam() {
+
+            document
+                .getElementById(
+                    "resultScreen"
+                )
+                .classList.add("hide");
+
+
+            document
+                .getElementById(
+                    "introScreen"
+                )
+                .classList.remove("hide");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
